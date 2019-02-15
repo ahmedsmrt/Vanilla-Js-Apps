@@ -131,7 +131,6 @@ document.querySelector('.player-0-panel').classList.add('active');
 
 
 
-// 1. Challenge One
 
 
 
