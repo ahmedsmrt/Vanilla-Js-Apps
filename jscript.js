@@ -6,14 +6,14 @@ GAME RULES:
 - BUT, if the player rolls a 1, all his ROUND score gets lost. After that, it's the next player's turn
 - The player can choose to 'Hold', which means that his ROUND score gets added to his GLBAL score. After that, it's the next player's turn
 - The first player to reach 100 points on GLOBAL score wins the game
-- Also if player rolls a 6 twice their score goes back down to Zero!!!
+
 */
 
 var scores, roundScore, activePlayer, gamePlaying;
 
 init();
 
-var lastDice;
+
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     if(gamePlaying) {
@@ -27,21 +27,15 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
 
 
         // Update the Round Score if the rolled number was NOT a 1
-        if (dice === 6 && lastDice ===6) {
-            scores[activePlayer] = 0;
-            document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
-            nextPlayer();
-        } else if (dice !== 1) {
+        if (dice !== 1) {
             // Add score
             roundScore += dice;
             document.querySelector('#current-' + activePlayer).textContent = roundScore;
             
         } else {
-    
+            
             nextPlayer();
         }
-        
-        lastDice = dice;
     }
 });
 
@@ -54,12 +48,7 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
         // Update UI 
         document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
         //Check if player won the game
-
-        var input = document.querySelector('.final-score').value;
-
-        
-
-        if(scores[activePlayer] >= 50) {
+        if(scores[activePlayer] >= 100) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
             document.querySelector('.dice').style.display ='none';
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -128,11 +117,6 @@ document.querySelector('.player-0-panel').classList.add('active');
 
 // var x = document.querySelector('#score-0').textContent;
 // console.log(x);
-
-
-
-
-
 
 
 
