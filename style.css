@@ -52,8 +52,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: url(/back1.jpg) center center/cover;
-    background-color: #fff;
+    background: url(back1.jpg) center center/cover;
     box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
 }
